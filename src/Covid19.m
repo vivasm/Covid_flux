@@ -88,12 +88,12 @@ for time=1:T                    % La�o temporal
     [~,im]=maxk(Pop.Pi,nTop);
     TopK(time,:)=Pop.id(im);    % guarda o Top N
 
-    if flagVideo &&( time==1 || mod(time,2)==0)
+    if flagVideo && ( time==1 || mod(time,2)==0)
         report(Pop,time,tS,tI,tR,Sps,Spi,Spr,MIn,ssa,im, titulo,map);                   % Gera a sa�da dos gr�ficos
         frame = getframe(gcf); %get frame
         writeVideo(CovidVideo, frame);
     end
-    if (~flagVideo) && (mode(time,10)==0)
+    if (~flagVideo) && (mod(time,10)==0)
         disp(time);
         toc;
     end
